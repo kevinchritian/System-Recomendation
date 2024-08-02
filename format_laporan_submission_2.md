@@ -67,11 +67,11 @@ Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang s
 **Univariate Exploratory Data Analysis**
 - Book
   
-Untuk mengetahui informasi seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan padas dengan perintah book.info()
+Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()
 
 ![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)
 
-dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilaiyang NaN atau hilang dapat menggunakan book.sinull().sum()
+dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.sinull().sum()
 
 ![image](https://github.com/user-attachments/assets/6cf6f0bf-a3ac-4a86-a45a-8ee1a13e6e5e)
 
@@ -83,7 +83,35 @@ Dapat dilihat ada sedikit sekali yang missing value. Selanjutnya menghitung juml
 
 Dapat dilihat bahwa total ISBN memiliki jumlah data unik 271.360, jumlah unik data book berdasarkan Book-Title adalah 242.135, Jumlah unik data book berdasarkan Author adalah 102.023, dan jumlah unik book berdasarkan publisher adalah 16.808.
 
+
 - Rating
+Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()
+
+![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6)
+
+dapat dilihat bahwa type feature User ID adalah int64, ISBN adalah object, Book-Rating int64 dan semua terdiri dari 1.149.780 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.sinull().sum()
+
+![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4)
+
+
+Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN
+
+![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3)
+
+
+Lalu untuk melihat deskripsi rating dapat menggunakan rating.describe()
+
+![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
+
+
+Dapat diketahui bahwa max rating adalah 10 dan minimal rating adalah 0.
+
+- 
+
+
+
+
+
 
   
 
