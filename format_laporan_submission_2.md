@@ -146,15 +146,47 @@ Selanjutnya menggabungkan Data dengan Fitur Nama Buku sebelum dilakukan Data Pre
 Dapat dilihat jumlah data sekarang adalah 1.149.780. dan terdiri dari 6 columns
 
 
-## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+## Data Preparation
+Berikut adalah tahapan Data Preparation :
+- **Mengatasi Missing Value**
+Untuk mengatasi missing value dengan perintah .isnull.sum().
+  
+![image](https://github.com/user-attachments/assets/e5b427b6-f196-4a60-a4d1-daf656f312c7)
+
+Dapat dilihat terdapat banyak sekali missing Value. Hal ini bisa mengganggu model dalam kinerja model. Oelh karena itu dihapus yang missing Value menggunakan .dropna().
+
+![image](https://github.com/user-attachments/assets/7900d9df-0d2d-434d-9389-99c16b7e9135)
+
+Dari hasil .dropna() dapat dilihat bahwa data masih banyak yaitu 1.031.132. Selanjutnya hapus data yang memiliki Duplikat data, hal ini bisa mempengaruhi hasil Rekomendasi jika tidak dihapus misalnya seperti di rekomendasi muncul data yang direkomendasikan sama persis seperti ISBN dan judul buku. Untuk perintah menghapus data dengan .drop_duplicates() berdasarkan ISBN.
+
+![image](https://github.com/user-attachments/assets/df32ee4c-9a02-4865-8f5d-a6f590d7f1e8)
+
+
+Dapat dilihat setelah di drop duplikat data menjadi 270.147. Cukup banyak data yang Terduplikat. Selanjutnya pada kasus ini menggunakan Data 40.000. Alasan menjadi 40.000 data karena pada Tools Colab RAM untuk memproses Data sebanyak 270.147 tidak men support (dalam melakukan Cosine Similarity). Sehingga pada kasus ini menggunakan 40.000 data. 
+
+![image](https://github.com/user-attachments/assets/8741a128-ef5f-4462-b6d9-83df17f00b5c)
+
+
+Selanjutnya sebelum membuat Model perlu melakukan konversi menjadi list dengan menggunakan perintah .tolist().
+
+![image](https://github.com/user-attachments/assets/767630b4-44fe-40dd-b5fb-21ae17835a79)
+
+
+Tahap berikutnya, membuat dictionary untuk menentukan pasangan key-value pada data ISBN_id, book_name, dan Author yang telah disiapkan sebelumnya.
+
+![image](https://github.com/user-attachments/assets/53387da4-3030-4990-9fb9-6c64ba39efa6)
+
+
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+Pada Modeling Data terdapat dua Pendekatan yaitu Content Based dan Colaborative Filtering.
+- **Content Based Filtering**
+
+
+
+
+
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
