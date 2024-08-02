@@ -208,7 +208,25 @@ Selanjutnya, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author.
 ![image](https://github.com/user-attachments/assets/048782c1-2aaf-4d7b-8e30-6761a16e9e32)
 
 
+![image](https://github.com/user-attachments/assets/f0ed8f94-2bc8-4095-97be-1b86d9977e79)
+
+
+![image](https://github.com/user-attachments/assets/0ba66332-90dc-4e35-9841-70e014b5176f)
+
+
+
 Pada Ouput Matrix diatas hanya menampilkan beberapa saja, tidak bisa semua outputnya karena data terlalu besar. Dari matriks kolerasi antara book name dan author dapat dilihat bahwa jika 0 maka tidak ada keterkaitan dan jika 1 ada keterkaitan antara Author dan book_name. 
+
+Kemudian menghitung derajat kesamaan (similarity degree) antar buku dengan teknik cosine similarity. Di sini, menggunakan fungsi cosine_similarity dari library sklearn. 
+
+
+![image](https://github.com/user-attachments/assets/54cf1871-9296-40d7-9168-f3553e711e09)
+
+
+Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diperoleh pada tahapan sebelumnya. Dengan satu baris kode untuk memanggil fungsi cosine similarity dari library sklearn, telah berhasil menghitung kesamaan (similarity) antar buku. 
+
+Selanjutnya,  melihat matriks kesamaan setiap buku dengan menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0).
+
 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
