@@ -66,12 +66,21 @@ Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang s
 
 **Univariate Exploratory Data Analysis**
 - Book
-Unutk mengetahui informasi seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan padas dengan perintah book.info()
+  
+Untuk mengetahui informasi seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan padas dengan perintah book.info()
 ![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)
 
-dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null)
+dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilaiyang NaN atau hilang dapat menggunakan book.sinull().sum()
+![image](https://github.com/user-attachments/assets/6cf6f0bf-a3ac-4a86-a45a-8ee1a13e6e5e)
 
--
+Dapat dilihat ada sedikit sekali yang missing value. Selanjutnya menghitung jumlah data unik pada setiap feature.
+![image](https://github.com/user-attachments/assets/09e212b4-aea8-4052-9dcf-ecdb67ea0670)
+
+Dapat dilihat bahwa total ISBN memiliki jumlah data unik 271.360, jumlah unik data book berdasarkan Book-Title adalah 242.135, Jumlah unik data book berdasarkan Author adalah 102.023, dan jumlah unik book berdasarkan publisher adalah 16.808.
+
+- Rating
+
+  
 
 
 ## Data Preparation
