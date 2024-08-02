@@ -182,10 +182,33 @@ Tahap berikutnya, membuat dictionary untuk menentukan pasangan key-value pada da
 ## Modeling
 Pada Modeling Data terdapat dua Pendekatan yaitu Content Based dan Colaborative Filtering.
 - **Content Based Filtering**
+Sebelumnya, mari cek lagi data yang  dimiliki dan assign dataframe dari tahap sebelumnya ke dalam variabel data, sebagai berikut:
+
+![image](https://github.com/user-attachments/assets/a521b20c-aab9-40b3-83f8-696d04a04b9b)
 
 
+**TF IDF Vectorizer**
+Pada tahp ini mengubah teks menjadi numerik menggunakan TF IDF Vectorizer pada Author. Untuk perintah mengubah ke Tf IDF menggunakan library yang disediakan Sklearn yaitu tfidfvectorizer().
+
+![image](https://github.com/user-attachments/assets/86096ffd-eaed-4868-8544-475c44c9b928)
 
 
+Selanjutnya elakukan melakukan fit dan transform ke dalam matrix dengan fit.transform() dan hasil nya sebagai berikut :
+
+![image](https://github.com/user-attachments/assets/e5c08cb9-a877-4842-9250-e13299dba0b0)
+
+
+terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Author dalam matrix. Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan fungsi todense().
+
+![image](https://github.com/user-attachments/assets/5420bce2-de4f-4895-9116-7a333e12f1cc)
+
+
+Selanjutnya, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. 
+
+![image](https://github.com/user-attachments/assets/048782c1-2aaf-4d7b-8e30-6761a16e9e32)
+
+
+Pada Ouput Matrix diatas hanya menampilkan beberapa saja, tidak bisa semua outputnya karena data terlalu besar. Dari matriks kolerasi antara book name dan author dapat dilihat bahwa jika 0 maka tidak ada keterkaitan dan jika 1 ada keterkaitan antara Author dan book_name. 
 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
