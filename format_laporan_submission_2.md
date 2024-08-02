@@ -375,6 +375,21 @@ Cenderung merekomendasikan item yang mirip dengan yang sudah disukai pengguna, s
 Proses penentuan fitur yang relevan secara otomatis bisa menjadi tantangan, terutama jika deskripsi atau atribut item tidak terstruktur atau sulit dikuantifikasi.
 
 
+Kelebihan Collaborative Filtering
+- Tidak Membutuhkan Fitur Konten:
+Metode ini hanya membutuhkan informasi interaksi pengguna-item (seperti rating atau perilaku), sehingga dapat diaplikasikan pada berbagai jenis item tanpa memerlukan pengetahuan tentang fitur spesifik dari item tersebut.
+- Kemampuan Menangkap Preferensi Kompleks:
+Collaborative Filtering dapat menangkap pola preferensi kompleks yang mungkin tidak terlihat melalui analisis fitur konten, dengan mengandalkan kesamaan perilaku di antara pengguna.
+- Rekomendasi Berbasis Komunitas:
+Metode ini dapat merekomendasikan item yang mungkin tidak akan ditemukan oleh pengguna sendiri, karena didasarkan pada preferensi pengguna lain yang serupa. Ini membantu dalam mengeksplorasi item-item baru dan tidak terbatas pada apa yang sudah diketahui pengguna.
+
+Kekurangan Collaborative Filtering
+-Masalah Cold Start:
+Sulit memberikan rekomendasi kepada pengguna baru (tanpa riwayat interaksi) atau untuk item baru (tanpa rating atau ulasan dari pengguna).
+- Masalah Sparsity:
+Dalam dataset besar, hanya sedikit pengguna yang mungkin memberi rating pada item-item yang ada, menyebabkan data menjadi sparse dan mengurangi efektivitas rekomendasi.
+- Skalabilitas:
+Menghitung kesamaan antara pengguna atau item bisa menjadi sangat mahal secara komputasi, terutama jika jumlah pengguna atau item sangat besar.
 
 ## Evaluation
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
