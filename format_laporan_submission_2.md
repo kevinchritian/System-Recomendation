@@ -50,11 +50,11 @@ Variabel-variabel pada Book Recomendation dataset adalah sebagai berikut:
 - Ratings.csv terdiri dari 1.149.780 rows. Berikut adalah feature feature dari Ratings.csv :
   - `User-ID` : berisi ID user
   - `ISBN` : berisi kode ISBN buku yang diberi rating oleh pengguna
-  - Book-Rating` : rating buku (1 -10)
+  - `Book-Rating` : rating buku (1 -10)
 
 - Users.csv terdiri dari 278.858 rows. Berikut adalah feature feature dari Users.csv :
   - `User-ID` : berisi ID unik pengguna
-  - Location` : berisi data lokasi pengguna
+  - `Location` : berisi data lokasi pengguna
   - `Age` : berisi data usia pengguna
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
