@@ -64,6 +64,16 @@ Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang s
 
 ![image](https://github.com/user-attachments/assets/9dc4291b-93d3-44d6-94f3-3e632035e53e)
 
+**Univariate Exploratory Data Analysis**
+- Book
+Unutk mengetahui informasi seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan padas dengan perintah book.info()
+![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)
+
+dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null)
+
+-
+
+
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
