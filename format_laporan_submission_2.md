@@ -106,14 +106,44 @@ Lalu untuk melihat deskripsi rating dapat menggunakan rating.describe()
 
 Dapat diketahui bahwa max rating adalah 10 dan minimal rating adalah 0.
 
-- 
+
+- User
+Berikut adalah jumlah data unik pada User-ID.
+
+![image](https://github.com/user-attachments/assets/264dbd96-12e9-4687-9d05-c17c2b4c3eec)
+
+Dapat dilihat bahwa terdapat 278.858 data unik pada Users.csv berdasarkan User-ID. Lalu selanjutnya apakah ada missing value dengan perintah user.isnull().sum().
+
+![image](https://github.com/user-attachments/assets/c0045063-046a-464f-81e5-88f8a369f77f)
 
 
+Teranyata tidak ada yang missing value.
 
 
+**Data Preprocesing**
+Pada tahap ini, melihat jumlah Rating pada buku. Caranya dengan menggabungkan rating dengan book berdasarkan ISBN. berikut code nya :
+
+![image](https://github.com/user-attachments/assets/4b3ec40b-df45-404e-bc1e-03107dd9332a)
 
 
-  
+Outputnya : 
+
+![image](https://github.com/user-attachments/assets/333d402c-665f-4389-94fb-2b79282b8383)
+
+Terdapat 1.149.780 row dan 10 kolom. Lalu cek apakah ada missing value dengan perintah buku.isnull().sum(). 
+
+![image](https://github.com/user-attachments/assets/dbea8d57-1576-427c-974e-b07d5ccecf0e)
+
+ternyata ada banyak missing value. selanjutnya hitung jumlah rating berdasarkan ISBN.
+
+![image](https://github.com/user-attachments/assets/d8e5dab1-4d9e-4c6b-b630-719fd049588f)
+
+
+Selanjutnya menggabungkan Data dengan Fitur Nama Buku sebelum dilakukan Data Prepration.
+
+![image](https://github.com/user-attachments/assets/87268adc-8d71-47b9-81b1-38272d10d6fb)
+
+Dapat dilihat jumlah data sekarang adalah 1.149.780. dan terdiri dari 6 columns
 
 
 ## Data Preparation
