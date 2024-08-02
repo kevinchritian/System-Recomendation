@@ -33,8 +33,8 @@ Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
       Algoritma ini merekomendasikan buku berdasarkan karakteristik konten buku dan preferensi pengguna yang telah ada. Dengan menganalisis seperti deskripsi, genre, penulis, dan kata kunci dari buku-buku yang disukai pengguna sebelumnya, sistem dapat merekomendasikan buku-buku lain yang memiliki karakteristik serupa.
 
 ## Data Understanding
-Dataset yang digunakan pada proyek ini diambil dari website kaggle yaitu Book Recommendation Dataset. Dataset ini memiliki 3 file csv yaitu Ratings.csv, Book.csv, dan Users.csv
-dataset : [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset?select=Users.csv).
+Dataset yang digunakan pada proyek ini diambil dari website kaggle yaitu Book Recommendation Dataset. Dataset ini memiliki 3 file csv yaitu Ratings.csv, Book.csv, dan Users.csv. 
+Dataset : [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset?select=Users.csv).
 
 Variabel-variabel pada Book Recomendation dataset adalah sebagai berikut:
 - Books.csv terdiri dari 271.360 rows. Berikut adalah  feature feature yang ada pada Books.csv :
@@ -57,8 +57,12 @@ Variabel-variabel pada Book Recomendation dataset adalah sebagai berikut:
   - `Location` : berisi data lokasi pengguna
   - `Age` : berisi data usia pengguna
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang sama muncul beberapa kali dihitung sekali, sehingga total data sebagai berikut :
+- Book.csv memiliki 271.360 data unik berdasarkan ISBN
+- Ratings.csv memiliki 105.283 data unik berdasarkan User-ID
+- Users.csv memiliki 278.858 data unik berdasarkan User-ID
+
+![image](https://github.com/user-attachments/assets/9dc4291b-93d3-44d6-94f3-3e632035e53e)
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
