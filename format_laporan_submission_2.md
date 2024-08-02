@@ -262,15 +262,119 @@ Lalu untuk memunculkan rekomnedasi dengan panggil fungsi book_recommendations.
 Dan dapat dilihat bahwa sistem berhasil merekomendasikan Authoryang sama dengan Author Joshua.
 
 
+
 - **Colaborative Filtering**
-  
+Untuk melakukan pendekatan Collaborative Filtering import dahulu library yang dibutuhkan.
+
+![image](https://github.com/user-attachments/assets/245febeb-9883-477e-bd3f-2af149cf4dd9)
 
 
+kemudian definiskan variable df sebagai rating (Ratings.csv). Lalu kenapa hanya 60.000 data, Karena data Ratings.csv terlalu banyak jutaan data. Sehingga nanti saat proses train akan memakan waktu sangat lama. oleh karena itu pada kasus ini menggunakan data 60.000.
+
+![image](https://github.com/user-attachments/assets/cb300fd7-2c3f-415b-b045-a5e2aae010b1)
 
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+Tahapan selanjutnya melakukan encode / mengubah ke dictionary pada UserID dan pada ISBN ke dalam index integer.
+
+![image](https://github.com/user-attachments/assets/a6fc072e-e85f-407d-8544-c1e94da901af)
+
+
+![image](https://github.com/user-attachments/assets/2c091e43-70d8-4c65-aa48-d825a70fca27)
+
+
+![image](https://github.com/user-attachments/assets/81af72c3-a937-4860-887f-25cc6e701273)
+
+
+Selanjutnya melakukan mapping ke dataframe User-ID dan ISBN
+
+
+![image](https://github.com/user-attachments/assets/b9c51a0d-f281-4309-86ca-d3e0f9a9fe84)
+
+
+Selanjutnya mencetak jumlah user, buku, max rating, minimal rating dan mengubah rating ke dalam float.
+
+![image](https://github.com/user-attachments/assets/dcb276e3-3a51-4eb6-9138-94f7f2bb0ec0)
+
+
+Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.
+
+
+![image](https://github.com/user-attachments/assets/77874139-b0ca-4b0a-adc2-e643844c6a11)
+
+
+Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%.
+
+
+![image](https://github.com/user-attachments/assets/c8618962-7204-44ce-80ea-f6d584275f6c)
+
+
+Pada code diatas perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
+
+Pada tahap selanjutnya, model menghitung skor kecocokan antara pengguna dan buku dengan teknik embedding. Pertama, melakukan proses embedding terhadap data user dan buku. Selanjutnya, lakukan operasi perkalian dot product antara embedding user dan buku. Selain itu, dapat menambahkan bias untuk setiap user dan buku. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid. Dimana jika 1 maka sangat cocok jika 0 tidak cocok sama sekali.
+
+Lalu membuat class RecommenderNet dengan keras Model class. 
+
+![image](https://github.com/user-attachments/assets/f83909d2-102e-4d00-bf35-16173ad7a210)
+
+
+Selanjutnya melakukan proses compile data dengan parameter :
+ - loss function : Binary Crossentropy  
+ - Optimizer : Adam (Adaptive Moment Estimation)
+ - Evaluation : root mean squared error (RMSE)
+ - Epochs : 100
+
+![image](https://github.com/user-attachments/assets/2bba99b1-b0dc-4b53-a7eb-df8bd57c7653)
+
+
+![image](https://github.com/user-attachments/assets/8f799b4d-462e-44c8-8977-aa5d5118b421)
+
+
+Output :
+![image](https://github.com/user-attachments/assets/15bb1578-f7b5-4c90-ba91-c29acb94f36a)
+
+Pada grafik diatas dapat dilihat bahwa grafik overfitting, Dimana overfitting saat train bagus akurasi tetapi saat akurasi validasi jelek.
+
+Untuk membuat rekomendasi buku, langkah pertama adalah mengambil sampel pengguna secara acak dan menentukan variabel book_not_visited, yang berisi daftar buku yang belum pernah dilihat oleh pengguna. Daftar book_not_visited ini nantinya akan menjadi kumpulan buku yang dapat direkomendasikan.
+
+Pengguna sebelumnya telah memberikan penilaian (rating) pada beberapa buku yang telah mereka baca. Rating ini akan digunakan untuk membuat rekomendasi buku yang mungkin akan disukai oleh pengguna tersebut. Karena rekomendasi yang kita buat adalah untuk buku-buku yang belum pernah dikunjungi oleh pengguna, kita perlu menyusun variabel book_not_visited untuk menyimpan daftar buku yang bisa direkomendasikan.
+
+Variabel book_not_visited dapat diperoleh dengan menggunakan operator bitwise (~) pada variabel book_visited_by_user. Operator ini akan menghasilkan daftar buku yang tidak ada dalam daftar book_visited_by_user, yang artinya belum pernah dilihat oleh pengguna dan layak untuk direkomendasikan.
+
+
+![image](https://github.com/user-attachments/assets/a9c81911-4c26-4863-8689-7bb3c6dd25a9)
+
+
+Selanjutnya, untuk memperoleh rekomendasi buku, gunakan fungsi model.predict() dari library Keras.
+
+![image](https://github.com/user-attachments/assets/b1d6a65f-805b-4bed-bd2c-cfa433631c90)
+
+
+Ouput :
+
+
+![image](https://github.com/user-attachments/assets/3e64ff42-56c4-496d-971d-29cc642e06a1)
+
+
+dapat dilihat bahwa Sistem Rekomendasi bisa memberikan Rekomendasi tapi tidak akurat. Dimana Rekomendasi buku harusnya sama dengan pengarang atau Author tapi disini merekomendasikan yang lain. Tidak ada kesamaan. Hal ini disebabkan Overfitting.
+
+**Kelibahan dan Kelemahan Content Based Filtering dan Collaborative Filtering**
+Kelebihan Content-Based Filtering
+-  Personalized Recommendations:
+Rekomendasi sangat disesuaikan dengan preferensi individu pengguna, berdasarkan fitur dari item yang telah mereka sukai sebelumnya.
+- Tidak Membutuhkan Data Pengguna Lain:
+Metode ini tidak bergantung pada data dari pengguna lain, sehingga tidak terpengaruh oleh masalah sparsity atau cold start dari item.
+- Menghindari Cold Start untuk Item:
+Item baru dengan deskripsi atau fitur yang baik dapat direkomendasikan tanpa perlu menunggu rating dari pengguna lain.
+
+Kekurangan Content-Based Filtering
+- Keterbatasan Fitur Konten:
+Sangat tergantung pada kualitas dan kelengkapan fitur yang tersedia untuk setiap item. Jika fitur yang relevan tidak ada atau kurang akurat, kualitas rekomendasi dapat menurun.
+- Kurang Diversifikasi Rekomendasi:
+Cenderung merekomendasikan item yang mirip dengan yang sudah disukai pengguna, sehingga kurang mampu memperkenalkan variasi atau mengeksplorasi item baru yang berbeda dari preferensi yang sudah diketahui.
+- Kesulitan dalam Ekstraksi Fitur Otomatis:
+Proses penentuan fitur yang relevan secara otomatis bisa menjadi tantangan, terutama jika deskripsi atau atribut item tidak terstruktur atau sulit dikuantifikasi.
+
+
 
 ## Evaluation
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
