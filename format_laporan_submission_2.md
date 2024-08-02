@@ -358,6 +358,7 @@ Ouput :
 dapat dilihat bahwa Sistem Rekomendasi bisa memberikan Rekomendasi tapi tidak akurat. Dimana Rekomendasi buku harusnya sama dengan pengarang atau Author tapi disini merekomendasikan yang lain. Tidak ada kesamaan. Hal ini disebabkan Overfitting.
 
 **Kelibahan dan Kelemahan Content Based Filtering dan Collaborative Filtering**
+
 Kelebihan Content-Based Filtering
 -  Personalized Recommendations:
 Rekomendasi sangat disesuaikan dengan preferensi individu pengguna, berdasarkan fitur dari item yang telah mereka sukai sebelumnya.
