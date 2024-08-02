@@ -227,6 +227,45 @@ Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diper
 
 Selanjutnya,  melihat matriks kesamaan setiap buku dengan menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0).
 
+![image](https://github.com/user-attachments/assets/1f65bbb1-7a54-4b7f-b197-8b54a0eaa8f6)
+
+
+Dengan cosine similarity pada output diatas, berhasil mengidentifikasi kesamaan antara satu buku dengan buku lainnya. Shape (40000, 40000) merupakan ukuran matriks similarity data. Berdasarkan data yang ada, matriks di atas sebenarnya berukuran 40000 restoran x 40000 nama buku. Akan tetapi tentu ouputnya tidak bisa menampilkan semuanya. Oleh karena itu, hanya memilih 10 buku pada baris vertikal dan 5 buku.
+
+Sama seperti antar Auhtor dengan Buku_name jika atau mendaekati 1 maka memiliki similarity atau kesamaan, jika 0 sebaliknya.
+
+Selanjutnya untuk mendapatkan rekomendasi Buku berdasarkan Author maka ada beberapa yang perlu diperhatikan. Dimana sistem ini user melihat lihat buku misalnya buku "JOSHUA" karya Joshep Girzone. Kemudian user ingin berencana membaca buku lain, Sistem akan merekomendasikan buku seperti Joshua In Holy Land. Rekomendasi kedua buku ini berdasarkan kesamaan yang dihitung dengan cosine similarity pada tahap sebelumnya. 
+
+Dalam code membuat fungsi book_recommendations dengan beberapa parameter sebagai berikut:
+- Nama_buku : Nama buku 
+- Similarity_data : Dataframe mengenai similarity yang telah di definisikan sebelumnya.
+- Items : Nama buku dan Author yang digunakan untuk mendefinisikan kemiripan.
+- k : Banyak rekomendasi yang ingin diberikan
+
+![image](https://github.com/user-attachments/assets/a5e9b081-329f-4d61-9e4c-344abef54425)
+
+
+argpartition, adalah mengambil sejumlah nilai k tertinggi dari similarity data. Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Lalu menghapus nama_buku yang yang dicari agar tidak muncul dalam daftar rekomendasi. Dalam kasus ini, nanti kita akan mencari resto yang mirip dengan Joshua, sehingga kita perlu drop nama_buku Joshua agar tidak muncul dalam daftar rekomendasi yang diberikan nanti.  
+
+Selanjutnya untuk test panggil dengan code seperti berikut :
+
+![image](https://github.com/user-attachments/assets/4f21671e-20f3-402e-b078-ceb1eb32008c)
+
+
+Pada Sistem rekomendasi berharap bahwa nanti yang muncul sama Author nya dengan buku yang dicari. Misalnya pada kasus ini Author adalah Joseph Girzone maka Author nanti rekomendasi data adalah Joseph Girzone.
+
+Lalu untuk memunculkan rekomnedasi dengan panggil fungsi book_recommendations.
+
+![image](https://github.com/user-attachments/assets/2991c0e0-ca7f-409f-a9d1-335c33d7bd88)
+
+
+Dan dapat dilihat bahwa sistem berhasil merekomendasikan Authoryang sama dengan Author Joshua.
+
+
+- **Colaborative Filtering**
+  
+
+
 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
