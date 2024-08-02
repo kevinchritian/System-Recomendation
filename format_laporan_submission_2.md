@@ -33,14 +33,29 @@ Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
       Algoritma ini merekomendasikan buku berdasarkan karakteristik konten buku dan preferensi pengguna yang telah ada. Dengan menganalisis seperti deskripsi, genre, penulis, dan kata kunci dari buku-buku yang disukai pengguna sebelumnya, sistem dapat merekomendasikan buku-buku lain yang memiliki karakteristik serupa.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Dataset yang digunakan pada proyek ini diambil dari website kaggle yaitu Book Recommendation Dataset. Dataset ini memiliki 3 file csv yaitu Ratings.csv, Book.csv, dan Users.csv
+dataset : [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset?select=Users.csv).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Variabel-variabel pada Book Recomendation dataset adalah sebagai berikut:
+- Books.csv terdiri dari 271.360 rows. Berikut adalah  feature feature yang ada pada Books.csv :
+  - `ISBN` : berisi kode ISBN dari buku  
+  - `Book-Title` : berisi judul buku
+  - `Book-Author` : berisi penulis buku
+  - `Year-Of-Publication` : tahun terbit buku  
+  - `Publisher` : penerbit buku  
+  - `Image-URL-S` : URL menuju gambar buku berukuran kecil
+  - `Image-URL-M` : URL menuju gambar buku berukuran sedang
+  - `Image-URL-L` : URL menuju gambar buku berukuran besar
+    
+- Ratings.csv terdiri dari 1.149.780 rows. Berikut adalah feature feature dari Ratings.csv :
+  - `User-ID` : berisi ID user
+  - `ISBN` : berisi kode ISBN buku yang diberi rating oleh pengguna
+  - Book-Rating` : rating buku (1 -10)
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+- Users.csv terdiri dari 278.858 rows. Berikut adalah feature feature dari Users.csv :
+  - `User-ID` : berisi ID unik pengguna
+  - Location` : berisi data lokasi pengguna
+  - `Age` : berisi data usia pengguna
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
