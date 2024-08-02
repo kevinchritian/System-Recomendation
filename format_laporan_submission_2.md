@@ -15,7 +15,7 @@ Dari jurnal tersebut, dapat diketahui bahwa rendahnya minat baca di Indonesia, y
 ### Problem Statements
 
 Menjelaskan pernyataan masalah:
-- Rendahnya minat baca di Indoenesia yang tercemin dari kurangnya jumlah bku yang dibaca masyarakat, menghambat perkembangan intektul
+- Rendahnya minat baca di Indoenesia yang tercemin dari kurangnya jumlah buku yang dibaca masyarakat, menghambat perkembangan intektul
 - Kurangnya akses dan keterkaitan terhadap buku yang relevan, bisa membuat masyarakat sulit menemukan bahan bacaan yang sesuai minat.
 - Pemanfaaran teknologi yang kurang optimal dalam mengatasi litrasi, dimana sistem rekomendasi buku yang ada belum maksimal dalam memberikan rekomendasi yang personal dan relevan
 
@@ -385,7 +385,7 @@ Collaborative Filtering dapat menangkap pola preferensi kompleks yang mungkin ti
 Metode ini dapat merekomendasikan item yang mungkin tidak akan ditemukan oleh pengguna sendiri, karena didasarkan pada preferensi pengguna lain yang serupa. Ini membantu dalam mengeksplorasi item-item baru dan tidak terbatas pada apa yang sudah diketahui pengguna.
 
 Kekurangan Collaborative Filtering
--Masalah Cold Start:
+- Masalah Cold Start:
 Sulit memberikan rekomendasi kepada pengguna baru (tanpa riwayat interaksi) atau untuk item baru (tanpa rating atau ulasan dari pengguna).
 - Masalah Sparsity:
 Dalam dataset besar, hanya sedikit pengguna yang mungkin memberi rating pada item-item yang ada, menyebabkan data menjadi sparse dan mengurangi efektivitas rekomendasi.
@@ -393,15 +393,67 @@ Dalam dataset besar, hanya sedikit pengguna yang mungkin memberi rating pada ite
 Menghitung kesamaan antara pengguna atau item bisa menjadi sangat mahal secara komputasi, terutama jika jumlah pengguna atau item sangat besar.
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Pada hasil Evaluasi Content Based Filtering merekomendasikan buku JOSHUA 
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+![image](https://github.com/user-attachments/assets/86bb17e3-93dc-419f-b7a9-8ad7352e4152)
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
 
-**---Ini adalah bagian akhir laporan---**
+Hasil dari Top-N 5 dari sistem merekomendasikan sebagai berikut :
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+![image](https://github.com/user-attachments/assets/c6ff1179-b163-4a46-be19-698cc4b62203)
+
+
+Dari  hasil Rekomendasi, dapat diketahui bahwa 5 item yang direkomendasikan, 3 item memiliki Author yang sma yaitu Joseph Girzone. Artinya, Precision sistem sebesar 3/5 yaitu 60%. Untuk rumuas sebagai berikut :
+
+![image](https://github.com/user-attachments/assets/8440cab1-d4fc-45c8-820e-359ae3c83651)
+
+
+Untuk hasil Evaluasi Collaborative Filtering. Metrik kinerja model diukur dengan RMSE (Root Mean Squared Error.
+- RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar
+
+Kelebihan dan kekurang matriks ini adalah :
+- kelebihan : menghukum kesalahan besar lebih sehingga bisa lebih tepat dalam beberapa kasus.
+- Kekurangan : memberikan bobot yang relatif tinggi untuk kesalahan besar. Ini berarti RMSE harus lebih berguna ketika kesalahan besar sangat tidak diinginkan
+
+Rumus :
+
+![image](https://github.com/user-attachments/assets/ecf90f36-0813-494d-86a5-b3542e9496fd)
+
+
+Keterangan :
+- At = Nilai data Aktual
+- FT = Nilai hasil peramalan
+- N = Banyak data
+- ∑ = Summation (Jumlahkan keseluruhan  nilai)
+
+Pada hasil hasil history RMSE train dan val dapat dilihat bahwa overfitting dan tidak memiliki kesamaaan dalam merekomendasi antar data.
+
+![image](https://github.com/user-attachments/assets/6a6073fe-67ca-460b-8743-c7dda6b377e6)
+
+
+Kenapa hal ini bisa terjadi ? 
+- kemungkinan pertama bahwa data varian kurang banyak. karena data mungkin terlalu kecil pada kasus ini untuk Deep Learning
+- Data pelatihan berisi banyak informasi yang tidak relevan.
+- Model sangat kompleks sehingga model mempelajari data tidak berarti dalam data pelatihan.
+
+Cara mengatasi dengan memberikan Regularisasi L1 dan L2, menambah data saat melakukan train.
+
+
+**Kesimpulan**
+
+Rendahnya Minat Baca di Indonesia:
+- Evaluasi: Content-Based Filtering dapat membantu dengan memberikan rekomendasi yang lebih relevan berdasarkan minat pengguna. Namun, untuk benar-benar mengatasi rendahnya minat baca secara menyeluruh, perlu juga adanya kolaborasi upaya lain seperti promosi budaya baca.
+
+Kurangnya Akses dan Keterkaitan terhadap Buku yang Relevan:
+- Evaluasi: Sistem ini berhasil dalam memperbaiki akses ke buku yang relevan dengan memberikan rekomendasi berdasarkan kesamaan fitur. Meskipun demikian, akses yang lebih luas dan distribusi buku juga penting untuk menyelesaikan masalah ini secara komprehensif.
+
+Pemanfaatan Teknologi yang Kurang Optimal dalam Literasi:
+- Evaluasi: Dengan menggunakan Content-Based Filtering, teknologi rekomendasi buku menjadi lebih efisien dan relevan.
+
+Secara keseluruhan, Content-Based Filtering telah memecahkan sebagian besar permasalahan yang diidentifikasi dengan memberikan rekomendasi yang lebih personal dan relevan. Namun, beberapa masalah lebih kompleks dan memerlukan pendekatan tambahan serta upaya lain di luar sistem rekomendasi untuk penyelesaian yang lebih menyeluruh.
+
+
+
+
+
+
