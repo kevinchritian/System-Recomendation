@@ -118,6 +118,7 @@ Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rat
 Melihat deskripsi rating dapat menggunakan rating.describe() 
 
 ![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
+
 Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0  
 
 Selanjutnya melihat Jumlah rating. Melihat Jumlah pada Rating dengan cara menggabungkan data rating dengan data book berdasarkan ISBN. Dari Ouput yang dihasilkan terdapat jumlah data yaitu 1.149.780. Selanjutnya melihat apakah ada missing value atau tidak dengan syntax isnull().sum(). 
