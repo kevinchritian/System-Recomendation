@@ -78,7 +78,7 @@ Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang s
 
 - **Book Variable** 
 Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()<br>
-![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)<br>
+![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464) <br>
 Data pada Book.csv memiliki :
 - 8 Feature
 - Semua Feature berjumlah 271360
@@ -92,20 +92,20 @@ Dari Ouput book.isnull().sum() ada sedikit yang missing value. Selanjutnya mengh
 
 - **Rating Variable**
 Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()<br>
-![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6)<br>
+![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6) <br>
 Dari Ouput rating.info() bisa disimpulkan :
 - Semua Feature berjumlah 1.149.780 data
 - Terdapat 2 type data yaitu int64 (User-ID dan Book-Rating) dan object (ISBN)
 - Data semua Feature Non-Null <br>
- Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum()<br>
-![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4)<br>
-Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN.<br>
+ Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum() <br>
+![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4) <br>
+Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN. <br>
 ![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3) <br>
-Melihat deskripsi rating dapat menggunakan rating.describe()<br>
+Melihat deskripsi rating dapat menggunakan rating.describe() <br>
 ![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
-Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0 <br>
+Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0  <br>
 Selanjutnya melihat Jumlah rating. Melihat Jumlah pada Rating dengan cara menggabungkan data rating dengan data book berdasarkan ISBN. Dari Ouput yang dihasilkan terdapat jumlah data yaitu 1.149.780. Selanjutnya melihat apakah ada missing value atau tidak dengan syntax isnull().sum(). <br>
-![image](https://github.com/user-attachments/assets/2fc8a0a8-c3f3-44b2-a454-c968f083f3f5)<br>
+![image](https://github.com/user-attachments/assets/2fc8a0a8-c3f3-44b2-a454-c968f083f3f5) <br>
 Ternyata terdapat banyak missing Value. 
 <br>
 
@@ -145,9 +145,9 @@ Setelah dilakukan Drop data maka tidak ada lagi missing value.
 <br>
 
 3. **Mengatasi Data Duplikat**
-Tahapan selanjutnya yaitu menghapus Duplikat pada data. Tujuan menghapus data Duplikat agar menghindari bias dan dapat mencegah terjadinya overfitting. Untuk menghapus duplikat menggunakan syntax .drop.duplicates().<br>
+Tahapan selanjutnya yaitu menghapus Duplikat pada data. Tujuan menghapus data Duplikat agar menghindari bias dan dapat mencegah terjadinya overfitting. Untuk menghapus duplikat menggunakan syntax .drop.duplicates(). <br>
 ![image](https://github.com/user-attachments/assets/32d50fda-dcea-4af2-935b-b432827bd723)
-![image](https://github.com/user-attachments/assets/cf91a9ce-4556-4d39-9083-6a58a41e390b)<br>
+![image](https://github.com/user-attachments/assets/cf91a9ce-4556-4d39-9083-6a58a41e390b) <br>
 Terdapat 271.353 Data setelah terduplikat.
 
 <br>
