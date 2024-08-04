@@ -132,6 +132,7 @@ Ternyata terdapat banyak missing Value.
 Jumlah data unik pada User-ID. 
 
 ![image](https://github.com/user-attachments/assets/264dbd96-12e9-4687-9d05-c17c2b4c3eec)
+
 Selanjutnya periksa ada missing value dengan syntax user.isnull().sum().
 
 ![image](https://github.com/user-attachments/assets/c0045063-046a-464f-81e5-88f8a369f77f)
@@ -171,13 +172,13 @@ Setelah dilakukan Drop data maka tidak ada lagi missing value.
 
 
 3. **Mengatasi Data Duplikat**
+
 Tahapan selanjutnya yaitu menghapus Duplikat pada data. Tujuan menghapus data Duplikat agar menghindari bias dan dapat mencegah terjadinya overfitting. Untuk menghapus duplikat menggunakan syntax .drop.duplicates(). 
 
 ![image](https://github.com/user-attachments/assets/32d50fda-dcea-4af2-935b-b432827bd723)
 ![image](https://github.com/user-attachments/assets/cf91a9ce-4556-4d39-9083-6a58a41e390b) 
 
 Terdapat 271.353 Data setelah terduplikat.
-
 
 
 4. **Proses Sampling**
@@ -188,17 +189,20 @@ Pada tahapan ini sebelum konversi data ke list, melakukan pengambilan data yang 
 Selanjutnya mengubah data ke list. Hal ini bertujuan agar saat pengolahan data lebih mudah. Untuk konversi ke list dapat menggunakan syntax .tolist().
 
 
-
 6. **Membuat Dictionary**
 Tahapan ini membuat dictionary untuk menetukan pasangan key-value pada data ISBN_id, book_name, dan Author yang telah disiapkan sebelumnya. 
 
 ![image](https://github.com/user-attachments/assets/7fd258ff-e5c8-4dce-a210-ebba612c7b0d)
 
 
+
 7. **TF IDF Vectorizer**
 Pada tahap ini mengubah teks menjadi numerik menggunakan TF IDF Vectorizer pada Author. Untuk perintah mengubah ke TF IDF menggunakan library yang disediakan Sklearn yaitu tfidfvectorizer(). Selanjutnya melakukan fit dan transform ke dalam matrix dengan `fit.transform()`. Untuk mengecek data nya bisa menggunakan syntax `.shape`. 
+
 ![image](https://github.com/user-attachments/assets/2a6b6001-9a44-476d-bdd4-4f23cb170292) 
+
 Ouput yang dihasilkan terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Author dalam matrix. 
+
 
 
 8. **Melihat hubungan Book dengan Author**
@@ -207,6 +211,7 @@ Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan s
 ![image](https://github.com/user-attachments/assets/50a63f7f-cc67-4969-b559-0325cc497845) 
 
 Pada Ouput Matrix diatas hanya menampilkan beberapa saja, tidak bisa semua outputnya karena data terlalu besar. Dari matriks kolerasi antara book name dan author dapat dilihat bahwa jika 0 maka tidak ada keterkaitan dan jika 1 ada keterkaitan antara Author dan book_name. 
+
 
 
 ### Collaborative Filltering
