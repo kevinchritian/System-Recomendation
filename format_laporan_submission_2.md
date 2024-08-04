@@ -10,14 +10,17 @@ Menurut Jurnal yang ditulis oleh Moh. Irfan, Andharini Dwi C, Fika Hastarita R. 
 
 Dari jurnal tersebut, dapat diketahui bahwa rendahnya minat baca di Indonesia, yang dapat menghambat kemajuan perkembangan bangsa. Untuk mengatasi masalah ini, salah satu solusi yang potensial adalah pengembangan dan implementasi sistem rekomendasi buku.  Sistem rekomendasi buku bukan hanya alat komersial untuk meningkatkan penjualan, tetapi juga instrumen penting dalam misi sosial untuk meningkatkan literasi dan pengetahuan di masyarakat Indonesia.
 
+Sistem rekomendasi buku dapat mengatasi masalah rendahnya minat baca di Indonesia dengan memberikan rekomendasi yang personal dan relevan berdasarkan data interaksi pengguna, seperti riwayat pembelian dan preferensi bacaan. Dengan memperkenalkan pengguna pada buku-buku yang sesuai dengan minat mereka dan genre baru yang mungkin belum dikenal, sistem ini mempermudah akses dan pemilihan buku yang tepat, sehingga meningkatkan minat dan keterlibatan dalam membaca. Selain itu, platform online yang didukung oleh sistem rekomendasi ini juga mempermudah akses buku dari berbagai lokasi, yang secara keseluruhan mendukung peningkatan literasi dan pendidikan di masyarakat.
+***
+
 ## Business Understanding
 
 ### Problem Statements
 
 Menjelaskan pernyataan masalah:
-- Rendahnya minat baca di Indoenesia yang tercemin dari kurangnya jumlah buku yang dibaca masyarakat, menghambat perkembangan intektul
-- Kurangnya akses dan keterkaitan terhadap buku yang relevan, bisa membuat masyarakat sulit menemukan bahan bacaan yang sesuai minat.
-- Pemanfaaran teknologi yang kurang optimal dalam mengatasi litrasi, dimana sistem rekomendasi buku yang ada belum maksimal dalam memberikan rekomendasi yang personal dan relevan
+- Bagaimana cara meningkatkan minat baca di Indonesia yang saat ini masih rendah, sehingga dapat mendorong perkembangan intelektual masyarakat?
+- Bagaimana cara mempermudah akses masyarakat terhadap buku-buku yang relevan dan sesuai minat mereka, sehingga mereka dapat menemukan bahan bacaan yang menarik?
+- Bagaimana teknologi dapat dimanfaatkan secara optimal untuk mengembangkan sistem rekomendasi buku yang lebih personal dan relevan, sehingga dapat meningkatkan literasi di masyarakat?
 
 ### Goals
 
@@ -31,6 +34,7 @@ Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
       Metode ini akan menghasilkan rekomendasi sejumlah buku yang sesuai dengan preferensi pengguna berdasarkan rating yang telah diberikan user sebelumnya. Dari data rating pengguna dapat digunakan untuk mengidentifikasi buku-buku yang mirip dan belum pernah diberi rating oleh pengguna untuk direkomendasikan.
     - Content Based Filtering
       Algoritma ini merekomendasikan buku berdasarkan karakteristik konten buku dan preferensi pengguna yang telah ada. Dengan menganalisis seperti deskripsi, genre, penulis, dan kata kunci dari buku-buku yang disukai pengguna sebelumnya, sistem dapat merekomendasikan buku-buku lain yang memiliki karakteristik serupa.
+***
 
 ## Data Understanding
 Dataset yang digunakan pada proyek ini diambil dari website kaggle yaitu Book Recommendation Dataset. Dataset ini memiliki 3 file csv yaitu Ratings.csv, Book.csv, dan Users.csv. 
@@ -58,306 +62,235 @@ Variabel-variabel pada Book Recomendation dataset adalah sebagai berikut:
   - `Age` : berisi data usia pengguna
 
 Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang sama muncul beberapa kali dihitung sekali, sehingga total data sebagai berikut :
-- Book.csv memiliki 271.360 data unik berdasarkan ISBN
-- Ratings.csv memiliki 105.283 data unik berdasarkan User-ID
-- Users.csv memiliki 278.858 data unik berdasarkan User-ID
-
-![image](https://github.com/user-attachments/assets/9dc4291b-93d3-44d6-94f3-3e632035e53e)
-
-**Univariate Exploratory Data Analysis**
-- Book
-  
-Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()
-
-![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)
-
-dapat dilihat bahwa type semua feature adalah object dan terdiri dari 271.360 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.sinull().sum()
-
-![image](https://github.com/user-attachments/assets/6cf6f0bf-a3ac-4a86-a45a-8ee1a13e6e5e)
 
 
-Dapat dilihat ada sedikit sekali yang missing value. Selanjutnya menghitung jumlah data unik pada setiap feature.
 
+| Nama File                  | Jumlah Data                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| Book.csv                 | 271.360               |
+| Ratings.csv                | 105.283 |
+| Users.csv              | 278.858
+
+
+<br>
+
+#### **Univariate Exploratory Data Analysis**
+
+- **Book Variable** 
+Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()<br>
+![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464)<br>
+Data pada Book.csv memiliki :
+- 8 Feature
+- Semua Feature berjumlah 271360
+- Data semua feature non-null
+- Semua Feature bertipe Object
+Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum() <br>
+![image](https://github.com/user-attachments/assets/6cf6f0bf-a3ac-4a86-a45a-8ee1a13e6e5e) 
+Dari Ouput book.isnull().sum() ada sedikit yang missing value. Selanjutnya menghitung jumlah data unik pada setiap feature. 
 ![image](https://github.com/user-attachments/assets/09e212b4-aea8-4052-9dcf-ecdb67ea0670)
+<br>
 
-
-Dapat dilihat bahwa total ISBN memiliki jumlah data unik 271.360, jumlah unik data book berdasarkan Book-Title adalah 242.135, Jumlah unik data book berdasarkan Author adalah 102.023, dan jumlah unik book berdasarkan publisher adalah 16.808.
-
-
-- Rating
-Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()
-
-![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6)
-
-dapat dilihat bahwa type feature User ID adalah int64, ISBN adalah object, Book-Rating int64 dan semua terdiri dari 1.149.780 baris serta tidak ada yang kosong (non-null). Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.sinull().sum()
-
-![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4)
-
-
-Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN
-
-![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3)
-
-
-Lalu untuk melihat deskripsi rating dapat menggunakan rating.describe()
-
+- **Rating Variable**
+Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()<br>
+![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6)<br>
+Dari Ouput rating.info() bisa disimpulkan :
+- Semua Feature berjumlah 1.149.780 data
+- Terdapat 2 type data yaitu int64 (User-ID dan Book-Rating) dan object (ISBN)
+- Data semua Feature Non-Null <br>
+ Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum()<br>
+![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4)<br>
+Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN.<br>
+![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3) <br>
+Melihat deskripsi rating dapat menggunakan rating.describe()<br>
 ![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
+Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0 <br>
+Selanjutnya melihat Jumlah rating. Melihat Jumlah pada Rating dengan cara menggabungkan data rating dengan data book berdasarkan ISBN. Dari Ouput yang dihasilkan terdapat jumlah data yaitu 1.149.780. Selanjutnya melihat apakah ada missing value atau tidak dengan syntax isnull().sum(). <br>
+![image](https://github.com/user-attachments/assets/2fc8a0a8-c3f3-44b2-a454-c968f083f3f5)<br>
+Ternyata terdapat banyak missing Value. 
+<br>
 
-
-Dapat diketahui bahwa max rating adalah 10 dan minimal rating adalah 0.
-
-
-- User
-Berikut adalah jumlah data unik pada User-ID.
-
+- **User Variable**
+Jumlah data unik pada User-ID. <br>
 ![image](https://github.com/user-attachments/assets/264dbd96-12e9-4687-9d05-c17c2b4c3eec)
+Selanjutnya periksa ada missing value dengan syntax user.isnull().sum().<br>
+![image](https://github.com/user-attachments/assets/c0045063-046a-464f-81e5-88f8a369f77f)<br>
+Dapat Disimpulkan bahwa terdapat missing Value pada feature Age
 
-Dapat dilihat bahwa terdapat 278.858 data unik pada Users.csv berdasarkan User-ID. Lalu selanjutnya apakah ada missing value dengan perintah user.isnull().sum().
-
-![image](https://github.com/user-attachments/assets/c0045063-046a-464f-81e5-88f8a369f77f)
-
-
-Teranyata tidak ada yang missing value.
-
-
-**Data Preprocesing**
-Pada tahap ini, melihat jumlah Rating pada buku. Caranya dengan menggabungkan rating dengan book berdasarkan ISBN. berikut code nya :
-
-![image](https://github.com/user-attachments/assets/4b3ec40b-df45-404e-bc1e-03107dd9332a)
-
-
-Outputnya : 
-
-![image](https://github.com/user-attachments/assets/333d402c-665f-4389-94fb-2b79282b8383)
-
-Terdapat 1.149.780 row dan 10 kolom. Lalu cek apakah ada missing value dengan perintah buku.isnull().sum(). 
-
-![image](https://github.com/user-attachments/assets/dbea8d57-1576-427c-974e-b07d5ccecf0e)
-
-ternyata ada banyak missing value. selanjutnya hitung jumlah rating berdasarkan ISBN.
-
-![image](https://github.com/user-attachments/assets/d8e5dab1-4d9e-4c6b-b630-719fd049588f)
-
-
-Selanjutnya menggabungkan Data dengan Fitur Nama Buku sebelum dilakukan Data Prepration.
-
-![image](https://github.com/user-attachments/assets/87268adc-8d71-47b9-81b1-38272d10d6fb)
-
-Dapat dilihat jumlah data sekarang adalah 1.149.780. dan terdiri dari 6 columns
-
-
+***
 
 ## Data Preparation
-Berikut adalah tahapan Data Preparation :
-- **Mengatasi Missing Value**
-Untuk mengatasi missing value dengan perintah .isnull.sum().
-  
-![image](https://github.com/user-attachments/assets/e5b427b6-f196-4a60-a4d1-daf656f312c7)
 
-Dapat dilihat terdapat banyak sekali missing Value. Hal ini bisa mengganggu model dalam kinerja model. Oelh karena itu dihapus yang missing Value menggunakan .dropna().
+### Content Based Filtering
+Pada tahap ini dilakukan :
+- Menyimpan data Book pada variable all_buku_name
+- Mengatasi Missing Value
+- Mengatasi data Duplikat
+- Proses Sampling
+- Konversi data ke List
+- Membuat Dictionary 
+- TF IDF Vectorizer
+- Melihat hubungan Book dengan Author
+<br>
 
-![image](https://github.com/user-attachments/assets/7900d9df-0d2d-434d-9389-99c16b7e9135)
+1. **Menyimpan data Book pada variable all_buku_name**
+Pada Tahapan ini melakukan pengecekan lagi dan membuat variable all_buku_name untuk menyimpan data Book.csv. Jumlah data sebanyak 271.360 
+<br>
 
-Dari hasil .dropna() dapat dilihat bahwa data masih banyak yaitu 1.031.132. Selanjutnya hapus data yang memiliki Duplikat data, hal ini bisa mempengaruhi hasil Rekomendasi jika tidak dihapus misalnya seperti di rekomendasi muncul data yang direkomendasikan sama persis seperti ISBN dan judul buku. Untuk perintah menghapus data dengan .drop_duplicates() berdasarkan ISBN.
+2. **Mengatasi Missing Value**
+Sebelum Mengatasi Missing Value, periksa terlebih dahulu apakah ada missing value. Dapat menggunakan syntax isnull().sum() <br>
+![image](https://github.com/user-attachments/assets/7adb6573-ec10-4579-861e-08f1497fafe9) <br>
+Pada Ouput terdapat sedikit missing Value. Meskipun sedikit tetapi hal ini bisa mengganggu model dalam kinerja model. Oleh karena salah satu cara mengatasi yaitu hapus yang missing Value menggunakan .dropna(). <br>
+![image](https://github.com/user-attachments/assets/2b94e67e-90c0-4c73-b8d8-fdad6e3d450a) <br>
+Setelah dilakukan Drop data maka tidak ada lagi missing value.
+<br>
 
-![image](https://github.com/user-attachments/assets/df32ee4c-9a02-4865-8f5d-a6f590d7f1e8)
+3. **Mengatasi Data Duplikat**
+Tahapan selanjutnya yaitu menghapus Duplikat pada data. Tujuan menghapus data Duplikat agar menghindari bias dan dapat mencegah terjadinya overfitting. Untuk menghapus duplikat menggunakan syntax .drop.duplicates().<br>
+![image](https://github.com/user-attachments/assets/32d50fda-dcea-4af2-935b-b432827bd723)
+![image](https://github.com/user-attachments/assets/cf91a9ce-4556-4d39-9083-6a58a41e390b)<br>
+Terdapat 271.353 Data setelah terduplikat.
 
+<br>
 
-Dapat dilihat setelah di drop duplikat data menjadi 270.147. Cukup banyak data yang Terduplikat. Selanjutnya pada kasus ini menggunakan Data 40.000. Alasan menjadi 40.000 data karena pada Tools Colab RAM untuk memproses Data sebanyak 270.147 tidak men support (dalam melakukan Cosine Similarity). Sehingga pada kasus ini menggunakan 40.000 data. 
+4. **Proses Sampling**
+Pada tahapan ini sebelum konversi data ke list, melakukan pengambilan data yang akan dipakai yaitu 40.000 data dari 271.353. Hal ini dikarenakan jika menggunakan 271.353 data RAM pada Google Colab tidak cukup saat melakukan conversi ke TF-IDF. 
+<br>
 
-![image](https://github.com/user-attachments/assets/8741a128-ef5f-4462-b6d9-83df17f00b5c)
-
-
-Selanjutnya sebelum membuat Model perlu melakukan konversi menjadi list dengan menggunakan perintah .tolist().
-
-![image](https://github.com/user-attachments/assets/767630b4-44fe-40dd-b5fb-21ae17835a79)
-
-
-Tahap berikutnya, membuat dictionary untuk menentukan pasangan key-value pada data ISBN_id, book_name, dan Author yang telah disiapkan sebelumnya.
-
-![image](https://github.com/user-attachments/assets/53387da4-3030-4990-9fb9-6c64ba39efa6)
-
-
-
-## Modeling
-Pada Modeling Data terdapat dua Pendekatan yaitu Content Based dan Colaborative Filtering.
-- **Content Based Filtering**
-Sebelumnya, mari cek lagi data yang  dimiliki dan assign dataframe dari tahap sebelumnya ke dalam variabel data, sebagai berikut:
-
-![image](https://github.com/user-attachments/assets/a521b20c-aab9-40b3-83f8-696d04a04b9b)
-
-
-**TF IDF Vectorizer**
-Pada tahp ini mengubah teks menjadi numerik menggunakan TF IDF Vectorizer pada Author. Untuk perintah mengubah ke Tf IDF menggunakan library yang disediakan Sklearn yaitu tfidfvectorizer().
-
-![image](https://github.com/user-attachments/assets/86096ffd-eaed-4868-8544-475c44c9b928)
+5. **Konversi Data ke List**
+Selanjutnya mengubah data ke list. Hal ini bertujuan agar saat pengolahan data lebih mudah. Untuk konversi ke list dapat menggunakan syntax .tolist().
+<br>
 
 
-Selanjutnya elakukan melakukan fit dan transform ke dalam matrix dengan fit.transform() dan hasil nya sebagai berikut :
+6. **Membuat Dictionary**
+Tahapan ini membuat dictionary untuk menetukan pasangan key-value pada data ISBN_id, book_name, dan Author yang telah disiapkan sebelumnya. <br>
+![image](https://github.com/user-attachments/assets/7fd258ff-e5c8-4dce-a210-ebba612c7b0d)
 
-![image](https://github.com/user-attachments/assets/e5c08cb9-a877-4842-9250-e13299dba0b0)
+<br>
 
+7. **TF IDF Vectorizer**
+Pada tahap ini mengubah teks menjadi numerik menggunakan TF IDF Vectorizer pada Author. Untuk perintah mengubah ke TF IDF menggunakan library yang disediakan Sklearn yaitu tfidfvectorizer(). Selanjutnya melakukan fit dan transform ke dalam matrix dengan `fit.transform()`. Untuk mengecek data nya bisa menggunakan syntax `.shape`. 
+![image](https://github.com/user-attachments/assets/2a6b6001-9a44-476d-bdd4-4f23cb170292) <br> Ouput yang dihasilkan terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Author dalam matrix. 
+<br>
 
-terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Author dalam matrix. Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan fungsi todense().
-
-![image](https://github.com/user-attachments/assets/5420bce2-de4f-4895-9116-7a333e12f1cc)
-
-
-Selanjutnya, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. 
-
-![image](https://github.com/user-attachments/assets/048782c1-2aaf-4d7b-8e30-6761a16e9e32)
-
-
-![image](https://github.com/user-attachments/assets/f0ed8f94-2bc8-4095-97be-1b86d9977e79)
-
-
-![image](https://github.com/user-attachments/assets/0ba66332-90dc-4e35-9841-70e014b5176f)
-
-
-
+8. **Melihat hubungan Book dengan Author**
+Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan syntax todense(). Kemudian, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. <br>
+![image](https://github.com/user-attachments/assets/50a63f7f-cc67-4969-b559-0325cc497845) <br>
 Pada Ouput Matrix diatas hanya menampilkan beberapa saja, tidak bisa semua outputnya karena data terlalu besar. Dari matriks kolerasi antara book name dan author dapat dilihat bahwa jika 0 maka tidak ada keterkaitan dan jika 1 ada keterkaitan antara Author dan book_name. 
 
-Kemudian menghitung derajat kesamaan (similarity degree) antar buku dengan teknik cosine similarity. Di sini, menggunakan fungsi cosine_similarity dari library sklearn. 
+<br>
 
+### Collaborative Filltering
+Pada Tahapan ini dilakukan beberapa hal :
+- Memahami data rating 
+- Menyandikan (encode) fitur ‘user’ dan ‘ISBN’ ke dalam indeks integer. 
+- Memetakan ‘USER-ID’ dan ‘ISBN’ ke dataframe yang berkaitan.
+- Mengecek beberapa hal dalam data seperti jumlah user, jumlah buku, kemudian mengubah nilai rating menjadi float.
 
-![image](https://github.com/user-attachments/assets/54cf1871-9296-40d7-9168-f3553e711e09)
+1. **Memahami Data Rating**
+Pada tahapan ini menggunakan data pada rating 60.000 data. Karena jika menggunakan data 1.149.780, akan sangat memakan waktu lama untuk proses training. Untuk memudahkan supaya tidak tertukar dengan fitur ‘rating’ pada data, nama variabel rating diubah menjadi df.
+<br>
 
+2. **Melakukan Encode Pada fitur User dan ISBN**
+Pada Tahapan ini dilakukan Encode kedalam Index integer. Hal ini seperti mengubah fitur User-ID dan ISBN kedalam dictionary. 
+<br>
 
-Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diperoleh pada tahapan sebelumnya. Dengan satu baris kode untuk memanggil fungsi cosine similarity dari library sklearn, telah berhasil menghitung kesamaan (similarity) antar buku. 
+3. **Memetakan User-ID dan ISBN ke dataframe yang berkaitan**
+Setelah dilakukan encode, selanjutnya melakukan mapping kedalam datframe yang berkaitan. Contohnya User dilakukan mapping pada fitur User-ID, dan Mapping ISBN ke dataframe book.
+<br>
 
-Selanjutnya,  melihat matriks kesamaan setiap buku dengan menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0).
+4. **Mengecek jumlah user, buku, dan mengubah rating menjadi float**
+Pada tahapan ini mengecek jumlah User-ID, Buku, dan jumlah max rating dan Min Rating pada dataframe. Sebelum menghitung max dan min rating, dilakukan konversi data rating ke Float.
 
-![image](https://github.com/user-attachments/assets/1f65bbb1-7a54-4b7f-b197-8b54a0eaa8f6)
+| Variable                  | Jumlah Data                                               |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| User                 | 5.153            |
+| Buku                | 43.266|
+| Max Rating              | 10.0|
+| Min Rating|  0.0|
 
+***
 
-Dengan cosine similarity pada output diatas, berhasil mengidentifikasi kesamaan antara satu buku dengan buku lainnya. Shape (40000, 40000) merupakan ukuran matriks similarity data. Berdasarkan data yang ada, matriks di atas sebenarnya berukuran 40000 restoran x 40000 nama buku. Akan tetapi tentu ouputnya tidak bisa menampilkan semuanya. Oleh karena itu, hanya memilih 10 buku pada baris vertikal dan 5 buku.
+## Modeling
+Pada Modeling Data terdapat dua Pendekatan yaitu, Content Based dan Colaborative Filtering.
 
-Sama seperti antar Auhtor dengan Buku_name jika atau mendaekati 1 maka memiliki similarity atau kesamaan, jika 0 sebaliknya.
+### **Content Based Filtering**
 
-Selanjutnya untuk mendapatkan rekomendasi Buku berdasarkan Author maka ada beberapa yang perlu diperhatikan. Dimana sistem ini user melihat lihat buku misalnya buku "JOSHUA" karya Joshep Girzone. Kemudian user ingin berencana membaca buku lain, Sistem akan merekomendasikan buku seperti Joshua In Holy Land. Rekomendasi kedua buku ini berdasarkan kesamaan yang dihitung dengan cosine similarity pada tahap sebelumnya. 
+- **Cosine Similarity**
+Kemudian menghitung derajat kesamaan (similarity degree) antar buku dengan teknik cosine similarity. Di sini, menggunakan fungsi cosine_similarity dari library sklearn.  <br> Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diperoleh pada tahapan sebelumnya. 
+<br>Selanjutnya,  Ouput kesamaan matirx pada setiap buku dapat dengan cara menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0). <br>
+![image](https://github.com/user-attachments/assets/195eaf82-ab8d-4805-80d6-dfed10fd8fdf) <br>
+Dengan cosine similarity pada output diatas, berhasil mengidentifikasi kesamaan antara satu buku dengan buku lainnya. Berdasarkan data yang ada, matriks di atas sebenarnya berukuran 40000 Author x 40000 nama buku. Akan tetapi tentu ouputnya tidak bisa menampilkan semuanya. Oleh karena itu, hanya memilih 10 buku pada baris vertikal dan 5 buku. Sama seperti antar Auhtor dengan Buku_name jika atau mendaekati 1 maka memiliki similarity atau kesamaan, jika 0 sebaliknya.
+<br>
 
+- **Mendapatkan Rekomendasi Buku**
+Selanjutnya untuk mendapatkan rekomendasi Buku berdasarkan Author maka ada beberapa yang perlu diperhatikan. Dimana sistem ini user melihat lihat buku misalnya buku "JOSHUA" karya Joshep Girzone. Kemudian user ingin berencana membaca buku lain, Sistem akan merekomendasikan buku seperti Joshua In Holy Land. Rekomendasi kedua buku ini berdasarkan kesamaan yang dihitung dengan cosine similarity pada tahap sebelumnya. <br>
 Dalam code membuat fungsi book_recommendations dengan beberapa parameter sebagai berikut:
 - Nama_buku : Nama buku 
 - Similarity_data : Dataframe mengenai similarity yang telah di definisikan sebelumnya.
 - Items : Nama buku dan Author yang digunakan untuk mendefinisikan kemiripan.
-- k : Banyak rekomendasi yang ingin diberikan
+- k : Banyak rekomendasi yang ingin diberikan (Top-5)
 
-![image](https://github.com/user-attachments/assets/a5e9b081-329f-4d61-9e4c-344abef54425)
+Selain itu pada mendapatkan rekomendasi menggunakan argpartition. Dalam sistem rekomendasi ini, argpartition digunakan untuk menemukan 5 item teratas yang paling mirip dengan item yang dicari. Prosesnya adalah:
+- Menghitung Similarity: Sistem menghitung tingkat kesamaan antara item yang dicari dengan semua item lainnya.
+- Memilih 5 Teratas: Menggunakan argpartition untuk memilih 5 item dengan tingkat kesamaan tertinggi.
+- Mengurutkan: Item-item ini kemudian diurutkan berdasarkan kesamaan tertinggi hingga terendah.
+- Menghapus Item Asli: Item asli (contoh: nama restoran yang dicari) dihapus dari daftar rekomendasi.
+- Hasil Akhir: Menampilkan 5 item yang paling mirip, tanpa menyertakan item asli yang dicari.
 
+<br>
 
-argpartition, adalah mengambil sejumlah nilai k tertinggi dari similarity data. Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Lalu menghapus nama_buku yang yang dicari agar tidak muncul dalam daftar rekomendasi. Dalam kasus ini, nanti kita akan mencari resto yang mirip dengan Joshua, sehingga kita perlu drop nama_buku Joshua agar tidak muncul dalam daftar rekomendasi yang diberikan nanti.  
+- **Result**
+Cara penggunaan nya dengam memanggil function book_recommendations dan memasukan judul buku. Contohnya `JOSHUA`.<br>
+![image](https://github.com/user-attachments/assets/d79359bc-24e4-4a51-96c0-a3cfabec742c)<br>
+Dan dapat dilihat **top-5** hasil sitem rekomendasi, bahwa sistem berhasil merekomendasikan Author yang sama dengan Author yaitu Joshua.
 
-Selanjutnya untuk test panggil dengan code seperti berikut :
+<br>
 
-![image](https://github.com/user-attachments/assets/4f21671e-20f3-402e-b078-ceb1eb32008c)
-
-
-Pada Sistem rekomendasi berharap bahwa nanti yang muncul sama Author nya dengan buku yang dicari. Misalnya pada kasus ini Author adalah Joseph Girzone maka Author nanti rekomendasi data adalah Joseph Girzone.
-
-Lalu untuk memunculkan rekomnedasi dengan panggil fungsi book_recommendations.
-
-![image](https://github.com/user-attachments/assets/2991c0e0-ca7f-409f-a9d1-335c33d7bd88)
-
-
-Dan dapat dilihat bahwa sistem berhasil merekomendasikan Authoryang sama dengan Author Joshua.
-
-
-
-- **Colaborative Filtering**
-Untuk melakukan pendekatan Collaborative Filtering import dahulu library yang dibutuhkan.
-
-![image](https://github.com/user-attachments/assets/245febeb-9883-477e-bd3f-2af149cf4dd9)
+### **Colaborative Filtering**
+1.  **Import Libary**
+Untuk melakukan pendekatan Collaborative Filtering import dahulu library yang dibutuhkan seperti import tensorflow, keras, dan lain lain.
+<br>
 
 
-kemudian definiskan variable df sebagai rating (Ratings.csv). Lalu kenapa hanya 60.000 data, Karena data Ratings.csv terlalu banyak jutaan data. Sehingga nanti saat proses train akan memakan waktu sangat lama. oleh karena itu pada kasus ini menggunakan data 60.000.
+2.  **Membagi data Training dan Testing**
+Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%. Saat membagi dataset perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
+<br>
 
-![image](https://github.com/user-attachments/assets/cb300fd7-2c3f-415b-b045-a5e2aae010b1)
-
-
-Tahapan selanjutnya melakukan encode / mengubah ke dictionary pada UserID dan pada ISBN ke dalam index integer.
-
-![image](https://github.com/user-attachments/assets/a6fc072e-e85f-407d-8544-c1e94da901af)
-
-
-![image](https://github.com/user-attachments/assets/2c091e43-70d8-4c65-aa48-d825a70fca27)
-
-
-![image](https://github.com/user-attachments/assets/81af72c3-a937-4860-887f-25cc6e701273)
-
-
-Selanjutnya melakukan mapping ke dataframe User-ID dan ISBN
-
-
-![image](https://github.com/user-attachments/assets/b9c51a0d-f281-4309-86ca-d3e0f9a9fe84)
-
-
-Selanjutnya mencetak jumlah user, buku, max rating, minimal rating dan mengubah rating ke dalam float.
-
-![image](https://github.com/user-attachments/assets/dcb276e3-3a51-4eb6-9138-94f7f2bb0ec0)
-
-
-Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.
-
-
-![image](https://github.com/user-attachments/assets/77874139-b0ca-4b0a-adc2-e643844c6a11)
-
-
-Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%.
-
-
-![image](https://github.com/user-attachments/assets/c8618962-7204-44ce-80ea-f6d584275f6c)
-
-
-Pada code diatas perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
-
-Pada tahap selanjutnya, model menghitung skor kecocokan antara pengguna dan buku dengan teknik embedding. Pertama, melakukan proses embedding terhadap data user dan buku. Selanjutnya, lakukan operasi perkalian dot product antara embedding user dan buku. Selain itu, dapat menambahkan bias untuk setiap user dan buku. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid. Dimana jika 1 maka sangat cocok jika 0 tidak cocok sama sekali.
-
-Lalu membuat class RecommenderNet dengan keras Model class. 
-
-![image](https://github.com/user-attachments/assets/f83909d2-102e-4d00-bf35-16173ad7a210)
-
-
+3.  **Proses Training**<br>
+Pada tahap training, membuat class RecommenderNet dengan keras Model class. Berikut cara kerjanya :
+- Embedding: Data pengguna dan buku dikonversi menjadi representasi vektor numerik (embedding).
+- Dot Product: Vektor embedding pengguna dan buku dikalikan (dot product) untuk mengukur kecocokan.
+- Bias: Ditambahkan bias spesifik untuk setiap pengguna dan buku untuk mengakomodasi preferensi individual.
+- Fungsi Aktivasi Sigmoid: Hasil dari dot product dan bias kemudian diterapkan fungsi sigmoid untuk mengubah skor kecocokan ke dalam rentang [0,1].
+Skor Kecocokan: Skor ini menunjukkan seberapa cocok pengguna dengan buku tertentu, di mana 1 berarti sangat cocok dan 0 berarti tidak cocok sama sekali.
+Lalu membuat class RecommenderNet dengan keras Model class. <br>
 Selanjutnya melakukan proses compile data dengan parameter :
  - loss function : Binary Crossentropy  
  - Optimizer : Adam (Adaptive Moment Estimation)
  - Evaluation : root mean squared error (RMSE)
- - Epochs : 100
-
-![image](https://github.com/user-attachments/assets/2bba99b1-b0dc-4b53-a7eb-df8bd57c7653)
-
-
-![image](https://github.com/user-attachments/assets/8f799b4d-462e-44c8-8977-aa5d5118b421)
-
+ - Learning Rate : 0.001
+ - Epochs : 100  <br>
+Fungsi Loss (Binary Crossentropy):
+Digunakan untuk mengukur perbedaan antara distribusi probabilitas prediksi model dan distribusi sebenarnya. Binary Crossentropy cocok untuk klasifikasi biner, di mana output model adalah probabilitas dari dua kelas yaitu 1 dan 0. <br>
+Optimizer (Adam):
+Adam dipilih karena kemampuannya untuk menyesuaikan laju pembelajaran selama pelatihan, membuat proses konvergensi lebih cepat dan stabil. Ini membantu mengoptimalkan fungsi loss dengan menyesuaikan bobot model.
+ <br>
 
 Output :
-![image](https://github.com/user-attachments/assets/15bb1578-f7b5-4c90-ba91-c29acb94f36a)
-
+![image](https://github.com/user-attachments/assets/d698ad1e-3554-413f-9fec-af769e42ede8)<br>
 Pada grafik diatas dapat dilihat bahwa grafik overfitting, Dimana overfitting saat train bagus akurasi tetapi saat akurasi validasi jelek.
 
-Untuk membuat rekomendasi buku, langkah pertama adalah mengambil sampel pengguna secara acak dan menentukan variabel book_not_visited, yang berisi daftar buku yang belum pernah dilihat oleh pengguna. Daftar book_not_visited ini nantinya akan menjadi kumpulan buku yang dapat direkomendasikan.
+4. **Result**
+Untuk membuat Sistem rekomendasi berikut adalah langkah langkahnya :
+- Ambil Sampel Pengguna: Pilih pengguna secara acak.
+- Identifikasi Buku yang Belum Dibaca: Tentukan daftar buku (book_not_visited) yang belum pernah dilihat oleh pengguna tersebut.
+- Gunakan Penilaian Pengguna: Gunakan rating yang diberikan pengguna pada buku-buku yang telah mereka baca untuk membuat rekomendasi buku.
+- Gunakan Operator Bitwise (~): Gunakan operator bitwise ~ pada variabel book_visited_by_user untuk mendapatkan daftar book_not_visited. Ini akan menghasilkan daftar buku yang tidak ada dalam daftar book_visited_by_user, artinya buku-buku yang belum pernah dibaca oleh pengguna dan layak direkomendasikan. <br>
+Selanjutnya, untuk memperoleh rekomendasi buku, gunakan fungsi model.predict() dari library Keras. Pada Rekomendasi berbasis Collaborative Filtering ini merekomendasikan **top 10**. <br>
+![image](https://github.com/user-attachments/assets/61cc4660-39ff-42e8-93ed-73c11e7d10f4) <br>
+Dapat dilihat bahwa Sistem Rekomendasi bisa memberikan Rekomendasi **top 10**, tetapi tidak akurat. Dimana Rekomendasi buku harusnya sama dengan pengarang atau Author tetapi disini merekomendasikan yang lain. Tidak ada kesamaan antar kolerasi. Hal ini mungkin disebabkan model Overfitting.<br>
 
-Pengguna sebelumnya telah memberikan penilaian (rating) pada beberapa buku yang telah mereka baca. Rating ini akan digunakan untuk membuat rekomendasi buku yang mungkin akan disukai oleh pengguna tersebut. Karena rekomendasi yang kita buat adalah untuk buku-buku yang belum pernah dikunjungi oleh pengguna, kita perlu menyusun variabel book_not_visited untuk menyimpan daftar buku yang bisa direkomendasikan.
-
-Variabel book_not_visited dapat diperoleh dengan menggunakan operator bitwise (~) pada variabel book_visited_by_user. Operator ini akan menghasilkan daftar buku yang tidak ada dalam daftar book_visited_by_user, yang artinya belum pernah dilihat oleh pengguna dan layak untuk direkomendasikan.
-
-
-![image](https://github.com/user-attachments/assets/a9c81911-4c26-4863-8689-7bb3c6dd25a9)
-
-
-Selanjutnya, untuk memperoleh rekomendasi buku, gunakan fungsi model.predict() dari library Keras.
-
-![image](https://github.com/user-attachments/assets/b1d6a65f-805b-4bed-bd2c-cfa433631c90)
-
-
-Ouput :
-
-
-![image](https://github.com/user-attachments/assets/3e64ff42-56c4-496d-971d-29cc642e06a1)
-
-
-dapat dilihat bahwa Sistem Rekomendasi bisa memberikan Rekomendasi tapi tidak akurat. Dimana Rekomendasi buku harusnya sama dengan pengarang atau Author tapi disini merekomendasikan yang lain. Tidak ada kesamaan. Hal ini disebabkan Overfitting.
-
-**Kelibahan dan Kelemahan Content Based Filtering dan Collaborative Filtering**
+### **Kelibahan dan Kelemahan Content Based Filtering dan Collaborative Filtering**
 
 Kelebihan Content-Based Filtering
 -  Personalized Recommendations:
@@ -392,23 +325,15 @@ Dalam dataset besar, hanya sedikit pengguna yang mungkin memberi rating pada ite
 - Skalabilitas:
 Menghitung kesamaan antara pengguna atau item bisa menjadi sangat mahal secara komputasi, terutama jika jumlah pengguna atau item sangat besar.
 
+***
 ## Evaluation
-Pada hasil Evaluasi Content Based Filtering merekomendasikan buku JOSHUA 
-
-![image](https://github.com/user-attachments/assets/86bb17e3-93dc-419f-b7a9-8ad7352e4152)
-
-
-Hasil dari Top-N 5 dari sistem merekomendasikan sebagai berikut :
-
-![image](https://github.com/user-attachments/assets/c6ff1179-b163-4a46-be19-698cc4b62203)
-
-
-Dari  hasil Rekomendasi, dapat diketahui bahwa 5 item yang direkomendasikan, 3 item memiliki Author yang sma yaitu Joseph Girzone. Artinya, Precision sistem sebesar 3/5 yaitu 60%. Untuk rumuas sebagai berikut :
+Pada hasil Evaluasi Content Based Filtering merekomendasikan dengan contoh buku JOSHUA, hasil dari **Top-5** dari sistem berhasil merekomendasikan item buku.
+Dari  hasil Rekomendasi, dapat diketahui bahwa 5 item yang direkomendasikan, 3 item memiliki Author yang sama yaitu Joseph Girzone. Artinya, Precision sistem sebesar 3/5 yaitu 60%. Untuk rumuas sebagai berikut :
 
 ![image](https://github.com/user-attachments/assets/8440cab1-d4fc-45c8-820e-359ae3c83651)
 
 
-Untuk hasil Evaluasi Collaborative Filtering. Metrik kinerja model diukur dengan RMSE (Root Mean Squared Error.
+Sedangkan hasil Evaluasi Collaborative Filtering. Metrik kinerja model diukur dengan RMSE (Root Mean Squared Error).
 - RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar
 
 Kelebihan dan kekurang matriks ini adalah :
@@ -426,17 +351,17 @@ Keterangan :
 - N = Banyak data
 - ∑ = Summation (Jumlahkan keseluruhan  nilai)
 
-Pada hasil hasil history RMSE train dan val dapat dilihat bahwa overfitting dan tidak memiliki kesamaaan dalam merekomendasi antar data.
+
+Interpretasi Hasil Evaluasi
+- Training Set
+Pada akhir epochs ke 100, loss training adalah 0.3005 dengan RMSE 0.1691. Ini menandakan bahwa mode mampu belajar dari pola data training dengan baik, menghasilkan kesalahan prediksi yang rendah pada data yang telah dilihat
+- Validation Set
+Pada epoch yang sama, loss validation adalah 0.6856 dengan RMSE 0.3914. Nilai loss dan RMSE yang lebih tinggi dibandingkan dengan data training menunjukkan bahwa model tidak dapat generalisasi dengan baik pada data yang tidak terlihat sebelumnya.
+
+Overfitting:
+Hasil ini menunjukkan adanya overfitting, di mana model performa baik pada data training namun buruk pada data validation. Ini terlihat dari perbedaan signifikan antara loss dan RMSE pada data training dan validation. Overfitting terjadi karena model terlalu fit pada data training atau kurangnya data latih.
 
 ![image](https://github.com/user-attachments/assets/6a6073fe-67ca-460b-8743-c7dda6b377e6)
-
-
-Kenapa hal ini bisa terjadi ? 
-- kemungkinan pertama bahwa data varian kurang banyak. karena data mungkin terlalu kecil pada kasus ini untuk Deep Learning
-- Data pelatihan berisi banyak informasi yang tidak relevan.
-- Model sangat kompleks sehingga model mempelajari data tidak berarti dalam data pelatihan.
-
-Cara mengatasi dengan memberikan Regularisasi L1 dan L2, menambah data saat melakukan train.
 
 
 **Kesimpulan**
@@ -451,9 +376,4 @@ Pemanfaatan Teknologi yang Kurang Optimal dalam Literasi:
 - Evaluasi: Dengan menggunakan Content-Based Filtering, teknologi rekomendasi buku menjadi lebih efisien dan relevan.
 
 Secara keseluruhan, Content-Based Filtering telah memecahkan sebagian besar permasalahan yang diidentifikasi dengan memberikan rekomendasi yang lebih personal dan relevan. Namun, beberapa masalah lebih kompleks dan memerlukan pendekatan tambahan serta upaya lain di luar sistem rekomendasi untuk penyelesaian yang lebih menyeluruh.
-
-
-
-
-
-
+***
