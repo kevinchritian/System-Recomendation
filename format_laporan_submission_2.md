@@ -153,6 +153,7 @@ Pada tahap ini dilakukan :
 - Membuat Dictionary 
 - TF IDF Vectorizer
 - Melihat hubungan Book dengan Author
+- Membagi Data Train dan Data Test
 
 
 1. **Menyimpan data Book pada variable all_buku_name**
