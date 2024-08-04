@@ -251,6 +251,10 @@ Pada tahapan ini mengecek jumlah User-ID, Buku, dan jumlah max rating dan Min Ra
 | Max Rating              | 10.0|
 | Min Rating|  0.0|
 
+5. **Membagi data Training dan Testing**
+
+Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%. Saat membagi dataset perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
+
 ***
 
 ## Modeling
@@ -297,10 +301,8 @@ Untuk melakukan pendekatan Collaborative Filtering import dahulu library yang di
 
 
 
-2.  **Membagi data Training dan Testing**
-Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%. Saat membagi dataset perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
  
-3.  **Proses Training**
+2.  **Proses Training**
 Pada tahap training, membuat class RecommenderNet dengan keras Model class. Berikut cara kerjanya :
 - Embedding: Data pengguna dan buku dikonversi menjadi representasi vektor numerik (embedding).
 - Dot Product: Vektor embedding pengguna dan buku dikalikan (dot product) untuk mengukur kecocokan.
