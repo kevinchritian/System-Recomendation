@@ -86,10 +86,13 @@ Data pada Book.csv memiliki :
 - Semua Feature bertipe Object
 
 Lalu untuk mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum()
+
 ![image](https://github.com/user-attachments/assets/6cf6f0bf-a3ac-4a86-a45a-8ee1a13e6e5e) 
+
 Dari Ouput book.isnull().sum() ada sedikit yang missing value. Selanjutnya menghitung jumlah data unik pada setiap feature. 
+
 ![image](https://github.com/user-attachments/assets/09e212b4-aea8-4052-9dcf-ecdb67ea0670)
-<br>
+
 
 - **Rating Variable**
 Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()<br>
