@@ -152,8 +152,8 @@ Pada tahap ini dilakukan :
 - Konversi data ke List
 - Membuat Dictionary 
 - TF IDF Vectorizer
-- Melihat hubungan Book dengan Author
-- Membagi Data Train dan Data Test
+- Melakukan todense()
+
 
 
 1. **Menyimpan data Book pada variable all_buku_name**
@@ -214,7 +214,7 @@ Ouput yang dihasilkan terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Auth
 
 
 
-8. **Melihat hubungan Book dengan Author**
+8. **Melakukan todense()**
 
 Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan syntax todense(). Kemudian, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. 
 
@@ -231,6 +231,7 @@ Pada Tahapan ini dilakukan beberapa hal :
 - Menyandikan (encode) fitur ‘user’ dan ‘ISBN’ ke dalam indeks integer. 
 - Memetakan ‘USER-ID’ dan ‘ISBN’ ke dataframe yang berkaitan.
 - Mengecek beberapa hal dalam data seperti jumlah user, jumlah buku, kemudian mengubah nilai rating menjadi float.
+- Membagi Data Train dan Data Test
 
 1. **Memahami Data Rating**
 Pada tahapan ini menggunakan data pada rating 60.000 data. Karena jika menggunakan data 1.149.780, akan sangat memakan waktu lama untuk proses training. Untuk memudahkan supaya tidak tertukar dengan fitur ‘rating’ pada data, nama variabel rating diubah menjadi df.
