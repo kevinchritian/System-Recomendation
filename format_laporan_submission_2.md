@@ -99,7 +99,7 @@ Dari Ouput rating.info() bisa disimpulkan :
 - Data semua Feature Non-Null <br>
  Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum() <br>
 ![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4) <br>
-Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN. <br>
+Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN. <p>&nbsp;</p>
 ![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3) <br>
 Melihat deskripsi rating dapat menggunakan rating.describe() <br>
 ![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
