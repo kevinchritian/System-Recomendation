@@ -72,13 +72,16 @@ Pada jumlah dari setiap file memiliki jumlah nilai yang unik, dimana data yang s
 | Users.csv              | 278.858
 
 
-<br>
+
+
 
 #### **Univariate Exploratory Data Analysis**
 
 - **Book Variable** 
-Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()<br>
-![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464) <br>
+Untuk mengetahui informasi Book.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah book.info()
+
+![image](https://github.com/user-attachments/assets/485801a2-d383-421f-90a4-423babe57464) 
+
 Data pada Book.csv memiliki :
 - 8 Feature
 - Semua Feature berjumlah 271360
@@ -95,26 +98,38 @@ Dari Ouput book.isnull().sum() ada sedikit yang missing value. Selanjutnya mengh
 
 
 - **Rating Variable**
-Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()<br>
-![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6) <br>
+Untuk mengetahui informasi Ratings.csv seperti tentang struktur DataFrame, termasuk jumlah total baris dan kolom, tipe data dari setiap kolom, dan serta jumlah nilai non-null menggunakan pandas dengan perintah rating.info()
+
+![image](https://github.com/user-attachments/assets/873c53bb-6914-44c8-95c3-546d919a85d6) 
+
 Dari Ouput rating.info() bisa disimpulkan :
 - Semua Feature berjumlah 1.149.780 data
 - Terdapat 2 type data yaitu int64 (User-ID dan Book-Rating) dan object (ISBN)
-- Data semua Feature Non-Null <br>
- Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum() <br>
-![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4) <br>
-Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN. <p>&nbsp;</p>
-![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3) <br>
-Melihat deskripsi rating dapat menggunakan rating.describe() <br>
+- Data semua Feature Non-Null 
+
+ Mengetahui apakah ada nilai yang NaN atau hilang dapat menggunakan book.isnull().sum() 
+
+![image](https://github.com/user-attachments/assets/4842d7cd-7a26-4d96-be9c-8ebd97aa30c4) 
+
+Ternyata tidak ada yang missing value. Selanjutnya melihat jumlah nilai unik rating berdasarkan User-ID dan ISBN. 
+
+![image](https://github.com/user-attachments/assets/a3c61c24-6154-4efb-83d4-f56b70ef22a3) 
+
+Melihat deskripsi rating dapat menggunakan rating.describe() 
+
 ![image](https://github.com/user-attachments/assets/cf8953fd-b841-47f7-b0cf-727bec0aea7f)
-Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0  <br>
-Selanjutnya melihat Jumlah rating. Melihat Jumlah pada Rating dengan cara menggabungkan data rating dengan data book berdasarkan ISBN. Dari Ouput yang dihasilkan terdapat jumlah data yaitu 1.149.780. Selanjutnya melihat apakah ada missing value atau tidak dengan syntax isnull().sum(). <br>
-![image](https://github.com/user-attachments/assets/2fc8a0a8-c3f3-44b2-a454-c968f083f3f5) <br>
+Dapat disimpulkan bahawa max Rating 10 dan Min Rating 0  
+
+Selanjutnya melihat Jumlah rating. Melihat Jumlah pada Rating dengan cara menggabungkan data rating dengan data book berdasarkan ISBN. Dari Ouput yang dihasilkan terdapat jumlah data yaitu 1.149.780. Selanjutnya melihat apakah ada missing value atau tidak dengan syntax isnull().sum(). 
+
+![image](https://github.com/user-attachments/assets/2fc8a0a8-c3f3-44b2-a454-c968f083f3f5) 
+
 Ternyata terdapat banyak missing Value. 
-<br>
+
 
 - **User Variable**
-Jumlah data unik pada User-ID. <br>
+Jumlah data unik pada User-ID. 
+
 ![image](https://github.com/user-attachments/assets/264dbd96-12e9-4687-9d05-c17c2b4c3eec)
 Selanjutnya periksa ada missing value dengan syntax user.isnull().sum().
 
@@ -136,7 +151,7 @@ Pada tahap ini dilakukan :
 - Membuat Dictionary 
 - TF IDF Vectorizer
 - Melihat hubungan Book dengan Author
-<br>
+
 
 1. **Menyimpan data Book pada variable all_buku_name**
 Pada Tahapan ini melakukan pengecekan lagi dan membuat variable all_buku_name untuk menyimpan data Book.csv. Jumlah data sebanyak 271.360 
@@ -228,8 +243,7 @@ Pada Modeling Data terdapat dua Pendekatan yaitu, Content Based dan Colaborative
 ### **Content Based Filtering**
 
 - **Cosine Similarity**
-Kemudian menghitung derajat kesamaan (similarity degree) antar buku dengan teknik cosine similarity. Di sini, menggunakan fungsi cosine_similarity dari library sklearn.  <br> Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diperoleh pada tahapan sebelumnya. 
-<br>Selanjutnya,  Ouput kesamaan matirx pada setiap buku dapat dengan cara menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0). 
+Kemudian menghitung derajat kesamaan (similarity degree) antar buku dengan teknik cosine similarity. Di sini, menggunakan fungsi cosine_similarity dari library sklearn.  Pada tahapan ini, menghitung cosine similarity dataframe tfidf_matrix yang diperoleh pada tahapan sebelumnya. Selanjutnya,  Ouput kesamaan matirx pada setiap buku dapat dengan cara menampilkan nama buku dalam 5 sampel kolom (axis = 1) dan 10 sampel baris (axis=0). 
 
 ![image](https://github.com/user-attachments/assets/195eaf82-ab8d-4805-80d6-dfed10fd8fdf) 
 
