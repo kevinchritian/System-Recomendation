@@ -182,21 +182,28 @@ Terdapat 271.353 Data setelah terduplikat.
 
 
 4. **Proses Sampling**
+
 Pada tahapan ini sebelum konversi data ke list, melakukan pengambilan data yang akan dipakai yaitu 40.000 data dari 271.353. Hal ini dikarenakan jika menggunakan 271.353 data RAM pada Google Colab tidak cukup saat melakukan conversi ke TF-IDF. 
 
 
+
 5. **Konversi Data ke List**
+
 Selanjutnya mengubah data ke list. Hal ini bertujuan agar saat pengolahan data lebih mudah. Untuk konversi ke list dapat menggunakan syntax .tolist().
 
 
+
 6. **Membuat Dictionary**
+
 Tahapan ini membuat dictionary untuk menetukan pasangan key-value pada data ISBN_id, book_name, dan Author yang telah disiapkan sebelumnya. 
 
 ![image](https://github.com/user-attachments/assets/7fd258ff-e5c8-4dce-a210-ebba612c7b0d)
 
 
 
+
 7. **TF IDF Vectorizer**
+
 Pada tahap ini mengubah teks menjadi numerik menggunakan TF IDF Vectorizer pada Author. Untuk perintah mengubah ke TF IDF menggunakan library yang disediakan Sklearn yaitu tfidfvectorizer(). Selanjutnya melakukan fit dan transform ke dalam matrix dengan `fit.transform()`. Untuk mengecek data nya bisa menggunakan syntax `.shape`. 
 
 ![image](https://github.com/user-attachments/assets/2a6b6001-9a44-476d-bdd4-4f23cb170292) 
@@ -205,12 +212,15 @@ Ouput yang dihasilkan terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Auth
 
 
 
+
 8. **Melihat hubungan Book dengan Author**
+
 Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan syntax todense(). Kemudian, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. 
 
 ![image](https://github.com/user-attachments/assets/50a63f7f-cc67-4969-b559-0325cc497845) 
 
 Pada Ouput Matrix diatas hanya menampilkan beberapa saja, tidak bisa semua outputnya karena data terlalu besar. Dari matriks kolerasi antara book name dan author dapat dilihat bahwa jika 0 maka tidak ada keterkaitan dan jika 1 ada keterkaitan antara Author dan book_name. 
+
 
 
 
