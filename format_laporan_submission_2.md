@@ -332,6 +332,7 @@ Output :
 Pada grafik diatas dapat dilihat bahwa grafik overfitting, Dimana overfitting saat train bagus akurasi tetapi saat akurasi validasi jelek.
 
 4. **Result**
+
 Untuk membuat Sistem rekomendasi berikut adalah langkah langkahnya :
 - Ambil Sampel Pengguna: Pilih pengguna secara acak.
 - Identifikasi Buku yang Belum Dibaca: Tentukan daftar buku (book_not_visited) yang belum pernah dilihat oleh pengguna tersebut.
