@@ -231,6 +231,9 @@ Pada Tahapan ini dilakukan beberapa hal :
 - Menyandikan (encode) fitur ‘user’ dan ‘ISBN’ ke dalam indeks integer. 
 - Memetakan ‘USER-ID’ dan ‘ISBN’ ke dataframe yang berkaitan.
 - Mengecek beberapa hal dalam data seperti jumlah user, jumlah buku, kemudian mengubah nilai rating menjadi float.
+- Melakukan Distribusi acak
+- Mapping data user dan Book
+- Normalisasi Rating
 - Membagi Data Train dan Data Test
 
 1. **Memahami Data Rating**
@@ -265,14 +268,14 @@ Selanjuntya sebelum melakukan pembagian data train dan test, Tahapan selanjutnya
 
 
 
-7. **Melakukan scaling Featrure dalam skala 0 - 1**
+7. **Normalisasi Rating**
 
-Selanjutnya juga diakukan scaling pada rating dimana rating skala rentang 0 dan 1 sehingga memudahkan dalam melakukan proses training.
+Selanjutnya diakukan Normalisasi scalling pada rating, dimana rating skala dalam rentang 0 dan 1 sehingga memudahkan dalam melakukan proses training atau pembuatan model.
 
 
 8. **Melakukan Pembagian Train dan Test**
 
-Pada tahapan ini, data dibagi menjadi data train dan data test, dimana data Train dengan 90 % dan 10 % untuk data test.
+Pada tahapan ini, data dibagi menjadi data train dan data test, dimana pembagian data Train dengan 90 % dan 10 % untuk data test.
 
 ***
 
