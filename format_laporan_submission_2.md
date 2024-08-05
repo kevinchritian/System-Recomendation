@@ -257,16 +257,23 @@ Pada tahapan ini mengecek jumlah User-ID, Buku, dan jumlah max rating dan Min Ra
 
 Langkah selanjutnya membagi random data agat distribusi acak. Dapat menggunakan syntax .sample() dan random_state.
 
-Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%. Saat membagi dataset perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
+
 
 6. **Memetakan maping Data user dan Book**
-Selanjuntya sebelum melakukan pembagian data train dan test, Tahapan selanjutnya memetakan data user dan book menjadi satu value.
+
+Selanjuntya sebelum melakukan pembagian data train dan test, Tahapan selanjutnya memetakan data user dan book menjadi satu value. untuk memudahakan dalam pembuatan model.
+
+
 
 7. **Melakukan scaling Featrure dalam skala 0 - 1**
+
 Selanjutnya juga diakukan scaling pada rating dimana rating skala rentang 0 dan 1 sehingga memudahkan dalam melakukan proses training.
 
+
 8. **Melakukan Pembagian Train dan Test**
-Pada tahapan ini, Data dibagi menjadi data train dan data test, dimana data Train dengan 90 % dan 10 % untuk data test.
+
+Pada tahapan ini, data dibagi menjadi data train dan data test, dimana data Train dengan 90 % dan 10 % untuk data test.
+
 ***
 
 ## Modeling
