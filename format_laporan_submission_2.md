@@ -152,7 +152,7 @@ Pada tahap ini dilakukan :
 - Konversi data ke List
 - Membuat Dictionary 
 - TF IDF Vectorizer
-- Melakukan todense()
+- Transformasi matrix ke bentuk dense
 
 
 
@@ -214,7 +214,7 @@ Ouput yang dihasilkan terdapat 40.000 jumlah ukuran data dan  13.842 jumlah Auth
 
 
 
-8. **Melakukan todense()**
+8. **Transformasi matrix ke bentuk dense**
 
 Selanjutnya untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan syntax todense(). Kemudian, melihat matriks tf-idf untuk beberapa buku (book_name) dan Author. 
 
@@ -253,10 +253,20 @@ Pada tahapan ini mengecek jumlah User-ID, Buku, dan jumlah max rating dan Min Ra
 | Max Rating              | 10.0|
 | Min Rating|  0.0|
 
-5. **Membagi data Training dan Testing**
+5. **Melakukan Distribusi Acak**
+
+Langkah selanjutnya membagi random data agat distribusi acak. Dapat menggunakan syntax .sample() dan random_state.
 
 Langkah selanjutnya membagi data train dan test. Sebelum itu melakukan random data agar distribusi nya acak.Setelah itu melakukan pembagian train dan test dimana data train adalah 90% dan test 10%. Saat membagi dataset perlu memetakan (mapping) data user dan book menjadi satu value terlebih dahulu. Lalu, rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. 
 
+6. **Memetakan maping Data user dan Book**
+Selanjuntya sebelum melakukan pembagian data train dan test, Tahapan selanjutnya memetakan data user dan book menjadi satu value.
+
+7. **Melakukan scaling Featrure dalam skala 0 - 1**
+Selanjutnya juga diakukan scaling pada rating dimana rating skala rentang 0 dan 1 sehingga memudahkan dalam melakukan proses training.
+
+8. **Melakukan Pembagian Train dan Test**
+Pada tahapan ini, Data dibagi menjadi data train dan data test, dimana data Train dengan 90 % dan 10 % untuk data test.
 ***
 
 ## Modeling
